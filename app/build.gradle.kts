@@ -21,7 +21,7 @@ android {
         buildConfigField(
             "String",
             "NASA_API_KEY",
-            "${project.findProperty("nasa_api_key")}"
+            "\"${project.findProperty("nasa_api_key")}\""
         )
 
         buildFeatures {

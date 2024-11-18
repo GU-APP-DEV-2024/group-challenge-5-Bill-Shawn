@@ -1,118 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NasaAPI"
-    android:layout_marginTop="10dp"
-    >
+    android:padding="16dp">
 
+    <!-- Count TextView -->
     <TextView
         android:id="@+id/countTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="Count"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Count:" />
+
+    <!-- Count EditText -->
     <EditText
         android:id="@+id/countEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/countTextView"
-        app:layout_constraintRight_toRightOf="@id/dateEditText"
-        app:layout_constraintBaseline_toBaselineOf="@id/countTextView"
-        android:hint="@string/count_edit_text_hint"
-        android:inputType="number"/>
+        app:layout_constraintStart_toEndOf="@id/countTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/countTextView"
+        android:hint="Enter count"
+        android:inputType="number" />
+
+    <!-- Count OR Text -->
     <TextView
         android:id="@+id/countORTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countEditText"
-        android:text="@string/count_or_text"
-        android:layout_marginRight="10dp"/>
+        app:layout_constraintTop_toBottomOf="@id/countEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="OR" />
 
+    <!-- Start Date TextView -->
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/countORTextView"
-        app:layout_constraintLeft_toLeftOf="@id/countTextView"
-        android:text="@string/date_text"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Start Date:" />
+
+    <!-- Start Date EditText -->
     <EditText
-        android:id="@+id/dateEditText"
+        android:id="@+id/startDateEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/dateTextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@id/dateTextView"
-        app:layout_constraintLeft_toLeftOf="@id/countEditText"
-        app:layout_constraintRight_toRightOf="@id/endDateEditText"
-        android:hint="@string/date_format_hint"
-        android:inputType="date"/>
-    <TextView
-        android:id="@+id/rangeCBTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/dateEditText"
-        app:layout_constraintBaseline_toBaselineOf="@id/dateEditText"
-        android:text="@string/range_checkbox_label"/>
+        android:hint="YYYY-MM-DD"
+        android:inputType="date" />
+
+    <!-- End Date TextView -->
     <TextView
         android:id="@+id/endDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/dateEditText"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/end_text"
-        android:visibility="invisible"/>
+        app:layout_constraintTop_toBottomOf="@id/startDateEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="End Date:"
+        android:visibility="invisible" />
+
+    <!-- End Date EditText -->
     <EditText
         android:id="@+id/endDateEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="@id/dateEditText"
-        app:layout_constraintRight_toLeftOf="@id/rangeCheckBox"
+        app:layout_constraintStart_toEndOf="@id/endDateTextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@id/endDateTextView"
-        android:hint="@string/date_format_hint"
+        android:hint="YYYY-MM-DD"
         android:inputType="date"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
+    <!-- Range Checkbox -->
     <CheckBox
         android:id="@+id/rangeCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="@id/rangeCBTextView"
-        app:layout_constraintLeft_toLeftOf="@id/rangeCBTextView"
-        app:layout_constraintBaseline_toBaselineOf="@id/endDateTextView"/>
+        app:layout_constraintTop_toBottomOf="@id/endDateEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Enable date range" />
 
+    <!-- Search Button -->
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/endDateEditText"
-        android:text="@string/search_button_text"/>
+        app:layout_constraintTop_toBottomOf="@id/rangeCheckBox"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Search" />
 
+    <!-- Clear Button -->
     <Button
         android:id="@+id/clearButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/searchButton"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/endDateEditText"
-        android:text="@string/clear_button_text"/>
+        app:layout_constraintTop_toBottomOf="@id/rangeCheckBox"
+        app:layout_constraintStart_toEndOf="@id/searchButton"
+        android:text="Clear" />
 
+    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/searchButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
