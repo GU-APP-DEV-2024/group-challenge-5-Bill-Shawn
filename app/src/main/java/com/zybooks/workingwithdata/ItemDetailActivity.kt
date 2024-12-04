@@ -31,6 +31,7 @@ class ItemDetailActivity : AppCompatActivity() {
         textView.text = description
 
         // Set up share functionality
+        // bonus I
         shareButton.setOnClickListener {
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
@@ -40,6 +41,7 @@ class ItemDetailActivity : AppCompatActivity() {
         }
 
         // Set up video button if video URL exists
+        // Bonus III
         if (videoUrl != null && videoUrl.isNotEmpty()) {
             videoButton.visibility = Button.VISIBLE
             videoButton.setOnClickListener {

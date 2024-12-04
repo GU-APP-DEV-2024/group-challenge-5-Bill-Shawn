@@ -48,9 +48,12 @@ class NasaAPI : AppCompatActivity() {
         endDateEditText = findViewById(R.id.endDateEditText)
 
         // Set up search button listener
+        // bonus 2
         findViewById<Button>(R.id.searchButton).setOnClickListener {
             searchAPOD()
         }
+
+
     }
 
     private fun searchAPOD() {
